@@ -2,7 +2,7 @@
 TernakTelur - Incubator API (Flask + gpiozero)
 ==============================================
 Hardware (VCC Relay = 3.3V dari Pi):
-  GPIO 22 = Relay PELEMBAB / HUMIDIFIER     (IN1, Active-LOW)
+  GPIO 22 = Relay PELEMBAB / HUMIDIFIER     (IN1, Active-HIGH)
   GPIO 26 = Relay LAMPU PEMANAS / HEATER    (IN2, Active-HIGH)
   GPIO  4 = Relay KIPAS / FAN               (IN3, Active-HIGH)
   GPIO 13 = Relay PEMBALIK TELUR / MOTOR    (IN4, Active-HIGH)
@@ -25,7 +25,7 @@ PORT = 5001
 # VCC Relay = 3.3V dari Pi Pin 1
 # =========================================================
 HUMIDIFIER_PIN        = 22
-HUMIDIFIER_ACTIVE_HIGH = False  # IN1, Active-LOW: ON=0(LOW), OFF=1(HIGH)
+HUMIDIFIER_ACTIVE_HIGH = True   # IN1, Active-HIGH: ON=1(HIGH), OFF=0(LOW)
 
 HEATER_PIN         = 26
 HEATER_ACTIVE_HIGH = True      # IN2, Active-HIGH: ON=1(HIGH), OFF=0(LOW)
@@ -276,7 +276,7 @@ def cleanup():
 if __name__ == '__main__':
     print('=' * 54)
     print('  TernakTelur - Incubator API (gpiozero)')
-    print(f'  GPIO Humidifier (IN1) : {HUMIDIFIER_PIN}  (Active-LOW)')
+    print(f'  GPIO Humidifier (IN1) : {HUMIDIFIER_PIN}  (Active-HIGH)')
     print(f'  GPIO Heater     (IN2) : {HEATER_PIN}  (Active-HIGH)')
     print(f'  GPIO Fan        (IN3) : {FAN_PIN}   (Active-HIGH)')
     print(f'  GPIO Motor      (IN4) : {MOTOR_PIN}  (Active-HIGH)')
